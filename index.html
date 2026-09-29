@@ -304,7 +304,7 @@ footer p{max-width:70ch}
           <li>衣服（至少 4 天份）</li>
           <li>薄外套（六甲山頂比市區低 5 度）</li>
           <li>室內拖鞋・鞋袋（姬路城天守、溫泉）</li>
-          <li>小毛巾（金の湯要自備）</li>
+          <li>小毛巾（金の湯要自備；太平のゆ 可租）</li>
           <li>好走的鞋（清水寺、姬路城樓梯多）</li>
           <li>雨傘・輕便雨衣</li>
           <li>行動電源（需 PSE／CC 認證）</li>
@@ -332,7 +332,7 @@ const P={ // [lat,lng]
  kix:[34.4335,135.2440], rinku:[34.4092,135.2981], izumisano:[34.4081,135.3169], hineno:[34.3978,135.3317], sakai:[34.5806,135.4636], shinimamiya:[34.6499,135.5019],
  namba:[34.6639,135.5022], nambahotel:[34.6630,135.5015], dotonbori:[34.6687,135.5012], shinsaibashi:[34.6747,135.5008],
  hommachi:[34.6819,135.4994], tanimachi4:[34.6813,135.5159], osakajo:[34.6873,135.5262], kuromon:[34.6656,135.5062],
- shinsekai:[34.6525,135.5063], tennoji:[34.6470,135.5137], harukas:[34.6459,135.5137], shitennoji:[34.6533,135.5163],
+ shinsekai:[34.6525,135.5063], taiheinoyu:[34.6551,135.5003], tennoji:[34.6470,135.5137], harukas:[34.6459,135.5137], shitennoji:[34.6533,135.5163],
  umeda:[34.7025,135.4959], umedahotel:[34.7017,135.4948], skybldg:[34.7053,135.4903], nakanoshima:[34.6935,135.5098], kokusai:[34.6918,135.4916],
  shinosaka:[34.7335,135.5000], yodoyabashi:[34.6932,135.5010], kyobashi:[34.6967,135.5350], juso:[34.7203,135.4819], tsuruhashi:[34.6656,135.5311],
  // JR 京都線・神戶線 沿線
@@ -387,7 +387,7 @@ const KIND={hotel:{c:'#c8452e',r:6,t:'🛏'},spot:{c:'#e28aa5',r:5.5},station:{c
 const NAMES={
  kix:['關西機場 T1','air'],
  namba:['難波站','station'], nambahotel:['難波站上飯店（候選）','hotel'], dotonbori:['道頓堀','spot'], shinsaibashi:['心齋橋','spot'],
- tanimachi4:['谷町四丁目','station'], osakajo:['大阪城','spot'], kuromon:['黑門市場','spot'], shinsekai:['新世界・通天閣','spot'],
+ tanimachi4:['谷町四丁目','station'], osakajo:['大阪城','spot'], kuromon:['黑門市場','spot'], shinsekai:['新世界・通天閣','spot'], taiheinoyu:['湯源郷 太平のゆ','spot'],
  harukas:['天王寺・HARUKAS 300','spot'], shitennoji:['四天王寺','spot'], umeda:['大阪・梅田','station'], umedahotel:['大阪站上飯店（候選）','hotel'],
  skybldg:['梅田藍天大廈','spot'], nakanoshima:['中之島公園','spot'], kokusai:['國立國際美術館（選項）','spot'], yodoyabashi:['淀屋橋','station'],
  kyoto:['京都站','station'], kyotohotel:['三條・河原町飯店（候選）','hotel'], gionshijo:['祇園四條','station'], kiyomizu:['清水寺','spot'],
@@ -429,6 +429,9 @@ const CARDS={
  shinsekai:{name:'新世界・通天閣',jp:'新世界・通天閣',kind:'景點',short:'昭和街景與串炸 だるま，傍晚點燈最好看',wiki:['通天閣','新世界 (大阪市)'],
   text:'大阪最有昭和味的街區：通天閣（高 103 公尺）腳下擠滿串炸店、將棋會館與立食居酒屋。串炸規矩只有一條「二度づけ禁止」，醬汁只能沾一次；だるま 是老字號，通天閣店有座位、不用排太久。傍晚 18:00 前後通天閣點燈，從ジャンジャン横丁往北拍最好。5 樓摸ビリケン腳底求好運。',
   chips:['通天閣 ¥1,000','10:00–20:00','動物園前站步行 5 分','串炸 だるま']},
+ taiheinoyu:{name:'湯源郷 太平のゆ なんば店',jp:'湯源郷 太平のゆ なんば店',kind:'體驗',short:'2023 年泡過的難波超級錢湯，走一天後泡到凌晨',wiki:['スーパー銭湯'],
+  text:'難波南邊木津市場旁的超級錢湯，2023 年學生版就是在這裡泡的（兩人 ¥1,700）。露天風呂、碳酸泉、多種三溫暖與岩盤浴（另計），還有餐廳與休息區，走完大阪城、天王寺、新世界這一天，晚上來泡一小時再回飯店睡最舒服。入館 ¥850、開到凌晨 1 點（0:00 停止入館），毛巾可租。地鐵御堂筋線大国町站 1 號出口步行 3 分，從難波站也只有一站；泡完搭一站地鐵或計程車回飯店。',
+  chips:['¥850','8:00–翌 1:00（受付至 0:00）','大国町站步行 3 分','難波搭地鐵一站','毛巾可租']},
  shinkaisoku:{name:'JR 新快速',jp:'JR 京都線・神戸線 新快速',kind:'交通',short:'大阪→京都 30 分、京都→三ノ宮 52 分、三ノ宮→大阪 20 分',wiki:['新快速'],
   text:'關西移動的骨幹：新快速不用特急券，每 15 分一班，刷 ICOCA 直接進站。這趟搭三次：大阪→京都、京都→三ノ宮、三ノ宮→大阪。帶行李箱避開 7:30–9:00 尖峰；想坐得舒服可以加 ¥600 左右搭「A シート」指定席車廂（部分班次有），或直接搭計程車到飯店。',
   chips:['大阪→京都 約 ¥580','京都→三ノ宮 約 ¥1,110','三ノ宮→大阪 約 ¥420','ICOCA 直接刷']},
@@ -545,8 +548,8 @@ const DAYS=[
    {t:'18:30',i:'🦀',h:'道頓堀晚餐：蟹道樂 或 お好み焼き 美津の（訂位）'},
    {t:'20:00',i:'📸',h:'固力果看板、法善寺橫丁散步'}
   ],cards:['flight','rapit','nambahotel','shinsaibashi']},
- {n:2,date:'10/5',wd:'五',title:'大阪一日',sub:'黑門市場、大阪城、HARUKAS 300、新世界串炸、道頓堀夜景',stay:'難波站上飯店（續住）',
-  map:{pts:['nambahotel','kuromon','tanimachi4','osakajo','harukas','shinsekai','dotonbori'],legs:[{a:'nambahotel',b:'kuromon',mode:'walk'},{a:'kuromon',b:'tanimachi4',mode:'subway',curve:-.15},{a:'tanimachi4',b:'osakajo',mode:'walk'},{a:'osakajo',b:'harukas',mode:'subway',curve:.15},{a:'harukas',b:'shinsekai',mode:'walk'},{a:'shinsekai',b:'dotonbori',mode:'subway'},{a:'dotonbori',b:'nambahotel',mode:'walk'}],labels:{nambahotel:'l',kuromon:'r',tanimachi4:'b',osakajo:'r',harukas:'r',shinsekai:'l',dotonbori:'l'},minSpan:.07},
+ {n:2,date:'10/5',wd:'五',title:'大阪一日',sub:'黑門市場、大阪城、HARUKAS 300、新世界串炸、道頓堀夜景，睡前泡太平のゆ',stay:'難波站上飯店（續住）',
+  map:{pts:['nambahotel','kuromon','tanimachi4','osakajo','harukas','shinsekai','dotonbori','taiheinoyu'],legs:[{a:'nambahotel',b:'kuromon',mode:'walk'},{a:'kuromon',b:'tanimachi4',mode:'subway',curve:-.15},{a:'tanimachi4',b:'osakajo',mode:'walk'},{a:'osakajo',b:'harukas',mode:'subway',curve:.15},{a:'harukas',b:'shinsekai',mode:'walk'},{a:'shinsekai',b:'dotonbori',mode:'subway'},{a:'dotonbori',b:'taiheinoyu',mode:'subway',curve:-.15},{a:'taiheinoyu',b:'nambahotel',mode:'subway',curve:-.25}],labels:{nambahotel:'l',kuromon:'r',tanimachi4:'b',osakajo:'r',harukas:'r',shinsekai:'b',dotonbori:'l',taiheinoyu:'l'},minSpan:.07},
   tl:[
    {t:'09:00',i:'🦪',h:'黑門市場早午餐：海鮮、烤扇貝、水果（飯店步行 10 分）'},
    {t:'11:00',i:'🚇',h:'地鐵 → 谷町四丁目，步行進大手門',move:1},
@@ -557,8 +560,11 @@ const DAYS=[
    {t:'16:00',i:'🚶',h:'步行 15 分或地鐵一站 → 新世界',move:1},
    {t:'16:30',i:'🍢',h:'新世界：串炸 だるま 早晚餐、通天閣點燈'},
    {t:'18:30',i:'🚇',h:'地鐵 御堂筋線 動物園前 → 難波',move:1},
-   {t:'19:00',i:'🌃',h:'道頓堀夜景、法善寺橫丁 夫婦善哉'}
-  ],cards:['kuromon','osakajo','harukas','shitennoji','shinsekai','dotonbori'],
+   {t:'19:00',i:'🌃',h:'道頓堀夜景、法善寺橫丁 夫婦善哉'},
+   {t:'20:30',i:'🚇',h:'地鐵 難波 → 大国町（一站）或計程車',move:1},
+   {t:'20:45',i:'♨',h:'湯源郷 太平のゆ：露天風呂、碳酸泉、岩盤浴（開到凌晨 1 點）'},
+   {t:'22:30',i:'🚇',h:'地鐵一站或計程車回難波飯店',move:1}
+  ],cards:['kuromon','osakajo','harukas','shinsekai','dotonbori','taiheinoyu','shitennoji'],
   rain:'<b>雨備</b>　黑門市場有頂、HARUKAS 與天守閣都在室內；新世界改逛天王寺 MIO・あべのキューズモール，晚上道頓堀商店街有頂。'},
  {n:3,date:'10/6',wd:'六',title:'大阪 → 京都：東山',sub:'清水寺、二三年坂、高台寺、八坂神社、祇園，晚上十二段家',stay:'三條・河原町飯店（候選）',
   map:{pts:['kyoto','kyotohotel','kiyomizu','ninenzaka','yasaka','gion'],legs:[{a:'kyoto',b:'kyotohotel',mode:'taxi'},{a:'kyotohotel',b:'kiyomizu',mode:'taxi',curve:-.2},{a:'kiyomizu',b:'ninenzaka',mode:'walk'},{a:'ninenzaka',b:'yasaka',mode:'walk'},{a:'yasaka',b:'gion',mode:'walk'},{a:'gion',b:'kyotohotel',mode:'walk',curve:.2}],labels:{kyoto:'l',kyotohotel:'l',kiyomizu:'r',ninenzaka:'r',yasaka:'r',gion:'b'},minSpan:.045},
