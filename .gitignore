@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+# make_land.py 的中間輸出（最終結果已內嵌在 index.html）
+land*.js
+core.js
+outer.js
