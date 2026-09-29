@@ -29,9 +29,9 @@
 ## 常見修改怎麼做
 
 - **新增一個景點**：`P` 加座標（`key:[緯度,經度]`，key 英文小寫）→ `NAMES` 加 `[顯示名, 類型]` → `CARDS` 加卡片 → 在某天的 `DAYS[n].map.pts/legs`、`labels`、`cards`、`tl` 加進去 → `node tools/check_keys.js`。
-- **改日期**：hero 的 kicker、`<title>`、住宿表、訂票時程、每個 `DAYS[n].date/wd`、頁尾。
+- **改日期**：hero 的 kicker、`<title>`、住宿表、訂票時程、每個 `DAYS[n].date/wd`、頁尾。換星期時注意休市日（黑門市場週日、十二段家週四與第二週三、金の湯第 2・4 週二、國立國際美術館週一）。
 - **填航班**：hero 的 `.flights` 三行、Day 1 與 Day 7 時刻表第一列／最後一列（目前寫「待訂」）。
-- **填飯店**：`NAMES` 的 `nambahotel / kyotohotel / kobehotel` 顯示名、對應 `CARDS`、住宿表、每天的 `stay`；座標可改成真正的飯店位置。
+- **填飯店**：`NAMES` 的 `nambahotel / kyotohotel / umedahotel` 顯示名、對應 `CARDS`、住宿表、每天的 `stay`；座標可改成真正的飯店位置。`kobehotel` 已是 The Royal Park Canvas 神戶三宮（下山手通 2-3-1），不用改。
 - **加照片**：`python3 tools/embed_images.py index.html inari=a.jpg,b.jpg`（覆蓋，第一張是封面）、`+inari=c.jpg`（追加）。照片先裁掉浮水印。
 - **加影片**：`CARDS[key].video=[{u:'https://youtu.be/xxxx',l:'標籤'}]`，網址帶 `t=53s` 會從該秒開始播。目前所有卡片都沒放影片，要放請用真的看過的連結。
 - **地圖標籤重疊**：改 `labels` 方位（`t/b/l/r`）、加大 `minSpan`，或把太近的點從 `pts` 拿掉只留卡片。來回同一段路，回程 leg 加 `curve:.2`（負值彎另一邊）。
@@ -54,6 +54,8 @@ python3 -m http.server 8000         # 開 http://localhost:8000 看，別用 fil
 
 ## 目前狀態
 
-- 行程本體：7 天 6 夜草稿（難波 2 晚・京都 2 晚・三宮 2 晚），日期 2027/3/27–4/2 是示意，航班、飯店都標「待訂」。
+- 行程本體：8 天 7 夜（難波 2 晚・京都 2 晚・三宮 2 晚・梅田 1 晚），依 2023 年 10/4–10/11 學生時期實走版改編給叔叔阿姨（兩人、可自駕、預算較寬裕）。日期只保留月日與星期（週四出發），航班與三段候選飯店標「待訂」；神戶 The Royal Park Canvas 神戶三宮 是唯一住過、直接推薦的飯店。
+- 神戶兩天（Day 5–6）以租車為主軸：三宮 → 有馬 → 六甲山 → 三宮、三宮 → 姬路 → 舞子 → 三宮；每天的 `rain` 欄有公共運輸備案。
+- 出發前要確認的店：彩DINING（網路有 2023 年底歇業留言，備案 モーリヤ本店）、十二段家（週四休）、焼肉弘（建議改訂正規店）。
 - 照片：`IMG={}`，尚未嵌入；卡片先用 Wikipedia 縮圖當備援（連網才會顯示）。
 - 影片：全部未放。
